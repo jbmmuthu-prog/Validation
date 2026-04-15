@@ -1,0 +1,18 @@
+Index: src/test/java/stepDef/validate.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package stepDef;\r\n\r\nimport io.cucumber.java.en.Given;\r\nimport io.cucumber.java.en.Then;\r\nimport io.cucumber.java.en.When;\r\nimport org.junit.Assert;\r\nimport org.openqa.selenium.By;\r\nimport org.openqa.selenium.OutputType;\r\nimport org.openqa.selenium.TakesScreenshot;\r\nimport org.openqa.selenium.WebDriver;\r\nimport org.openqa.selenium.chrome.ChromeDriver;\r\nimport org.openqa.selenium.devtools.v142.filesystem.model.File;\r\n\r\nimport java.time.Duration;\r\n\r\npublic class validate {\r\n\r\n    WebDriver driver = new ChromeDriver();\r\n\r\n    @Given(\"Launch Chrome Browser\")\r\n    public void launch_chrome_browser() {\r\n        driver.get(\"https://the-internet.herokuapp.com/login\");\r\n        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));\r\n\r\n    }\r\n\r\n    @When(\"Enter credential\")\r\n    public void enter_credential() {\r\n        driver.findElement(By.id(\"username\")).sendKeys(\"tomsmith\");\r\n        driver.findElement(By.id(\"password\")).sendKeys(\"SuperSecretPassword!\");\r\n        driver.findElement(By.xpath(\"//button[contains(@type,'submit')]\")).click();\r\n\r\n    }\r\n\r\n    @Then(\"Success\")\r\n    public void success() {\r\n        Boolean securePage = driver.findElement(By.id(\"flash\")).isDisplayed();\r\n\r\n        Assert.assertTrue(securePage);\r\n\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/stepDef/validate.java b/src/test/java/stepDef/validate.java
+--- a/src/test/java/stepDef/validate.java	(revision d7d20baaf35a896cacc0a3ac84d90f6d5b0ba2d4)
++++ b/src/test/java/stepDef/validate.java	(date 1776247771902)
+@@ -35,7 +35,6 @@
+     @Then("Success")
+     public void success() {
+         Boolean securePage = driver.findElement(By.id("flash")).isDisplayed();
+-
+         Assert.assertTrue(securePage);
+ 
+     }
