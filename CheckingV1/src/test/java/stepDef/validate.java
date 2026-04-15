@@ -34,6 +34,8 @@ public class validate {
         Boolean securePage = driver.findElement(By.id("flash")).isDisplayed();
 
         Assert.assertTrue(securePage);
+        File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+FileUtils.copyFile(srcFile, new File("target/screenshots/loginPage.png"));
     }
 
 }
